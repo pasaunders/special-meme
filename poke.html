@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <script type="text/javascript">
+        $("document").ready(function(){
+            for (var i = 1; i < 152; i++) {
+                var picaddres = "http://pokeapi.co/media/img/" + i + ".png"
+                $("ul").append("<li><img src=" + picaddres + " alt='a pokemon'></li>")
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>151 pokemon</h1>
+    <ul>
+    </ul>
+</body>
+</html>
