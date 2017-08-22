@@ -9,14 +9,23 @@
         $(document).ready(function(){
             for (var i = 1; i < 152; i++) {
                 var picaddres = "http://pokeapi.co/media/img/" + i + ".png"
-                $("ul").append("<li><img id=" + i + " src=" + picaddres + " alt='a pokemon'></li>")
+                $(".pokepics").append("<li><img id=" + i + " src=" + picaddres + " alt='a pokemon'></li>")
             };
+            var oneAppend = 0;
             $(".pokepics").on('click', 'img', function(){
-                $.get("http://pokeapi.co/api/v1/pokemon/" + $(this).attr("id") , function(res){
-                    $(".name").val(res.name);
-                    $(".pokedex>img").attr("src", "http://pokeapi.co/media/img/" + $(this).attr("id") + ".png");
-                    
-                }, "json");
+                if ($(this).attr("id") != oneAppend) {
+                    oneAppend = $(this).attr("id");
+                    $(".pokedex h3, .pokedex p").text("")    ;
+                    $(".pokedex ul").empty()
+                    $.get("http://pokeapi.co/api/v1/pokemon/" + $(this).attr("id") , function(res){
+                        $(".name").text(res.name);
+                        $(".pokedex>img").attr("src", "http://pokeapi.co/media/img/" + res.pkdx_id + ".png");
+                        for(var i = 0; i < res.types.length; i++) {
+                            $(".pokedex>ul").append("<li>" + res.types[i].name + "</li>");
+                        }
+                        $(".pokedex>p").text(res.weight);
+                    }, "json");
+                }
             });
         });
     </script>

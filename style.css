@@ -22,3 +22,6 @@ li {
     border: 8px solid crimson;
     vertical-align: top;
 }
+.pokedex li {
+    display: block;
+}
