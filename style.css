@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 body {
     background-color: whitesmoke;
@@ -9,7 +10,15 @@ body {
 }
 ul {
     list-style: none;
+    display: inline-block;
+    width: 80%;
 }
 li {
     display: inline-block;
+}
+.pokedex {
+    display: inline-block;
+    width: 19%;
+    border: 8px solid crimson;
+    vertical-align: top;
 }
